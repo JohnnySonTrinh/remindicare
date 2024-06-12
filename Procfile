@@ -1,0 +1,1 @@
+web: gunicorn remindicare.wsgi:application --log-file -
