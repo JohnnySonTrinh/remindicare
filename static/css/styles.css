@@ -1,0 +1,25 @@
+.navbar {
+  background: #f7efe9;
+  display: flex;
+
+  a {
+    font-size: 18px;
+  }
+}
+
+.btn-login {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: #00c1f3;
+  border-radius: 0.5rem;
+  width: 5rem;
+  height: 2.5rem;
+  color: black;
+  margin-right: 5rem;
+}
+
+.logo {
+  height: 36px;
+  margin-left: 5rem;
+}
