@@ -5,3 +5,7 @@ const myFunction = () => {
 const secondFunction = () => {
     console.log('Hello from secondFunction');
 }
+
+const thirdFunction = () => {
+    console.log('Hello from thirdFunction');
+}
