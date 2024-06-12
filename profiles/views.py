@@ -5,4 +5,4 @@ def user_profile(request):
     return render(request, 'profiles/user_site.html')
 
 def caregiver_user(request):
-    return render(request, 'profiles/caregives_user.html')
+    return render(request, 'profiles/caretaker_user.html')
