@@ -15,4 +15,7 @@
    "files.autoSave": "off",
    "workbench.colorTheme": "Visual Studio Dark",
    "terminal.integrated.gpuAcceleration": "canvas",
+   "editor.wordWrap": "on",
+   "editor.lineNumbers": "off",
+   "editor.cursorStyle": "line-thin",
 }
