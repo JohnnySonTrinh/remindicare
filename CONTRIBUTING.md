@@ -105,3 +105,80 @@ If you have never created a pull request before, welcome 🎉 😄. [Here is a g
 
 By following these guidelines, you’ll ensure a smooth and collaborative development process. Happy coding!
 ```
+
+## Commit Message Format  
+  
+Let's keep things basic with this structure
+```bash
+<type>(<scope>): <subject>
+```
+
+Type:
+```bash
+docs: Documentation only changes
+feat: A new feature
+fix: A bug fix
+refactor: A change to the code's internal structure, with no change to its external behavior
+test: Adding missing tests or correcting existing tests
+chore: Other changes that don't modify src or test files
+```
+
+Scope
+The scope should be the name of the component or feature affected (as perceived by the person reading the changelog generated from commit messages).
+
+Subject
+The subject contains a succinct description of the change:
+
+use the imperative, present tense: "change" not "changed" nor "changes"
+don't capitalize the first letter
+no dot (.) at the end
+
+### Type Examples:
+
+- **docs**: Documentation only changes
+  ```bash
+  docs(readme): update installation instructions
+  docs(api): add usage examples for new endpoints
+  ```
+
+- **feat**: A new feature
+  ```bash
+  feat(authentication): add two-factor authentication support
+  feat(dashboard): implement user activity feed
+  ```
+
+- **fix**: A bug fix
+  ```bash
+  fix(login): resolve issue with password reset link
+  fix(header): fix layout issue on mobile devices
+  ```
+
+- **refactor**: A change to the code's internal structure, with no change to its external behavior
+  ```bash
+  refactor(user-service): simplify user validation logic
+  refactor(database): optimize query performance for large datasets
+  ```
+
+- **test**: Adding missing tests or correcting existing tests
+  ```bash
+  test(auth): add unit tests for login functionality
+  test(api): improve test coverage for endpoint validation
+  ```
+
+- **chore**: Other changes that don't modify src or test files
+  ```bash
+  chore(dependencies): update npm packages
+  ```
+
+### Scope Examples:
+
+- **Component or Feature Scope**
+  ```bash
+  chore(templates): add default pull request template
+  feat(profile): add medication tracking visualization page
+  test(notifications): add tests for notification service
+  fix(settings): correct typo in settings page
+  refactor(utils): restructure utility functions for better readability
+  ```
+
+These examples demonstrate how to format commit messages according to the provided guidelines, ensuring clear and concise descriptions for each change.
