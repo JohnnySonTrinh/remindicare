@@ -31,7 +31,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-johnnysontr-remindicare-t194x5vy7b5.ws.codeinstitute-ide.net',
-    '127.0.0.1',]
+    '127.0.0.1', 'remindicare-c84864436945.herokuapp.com',]
 
 
 # Application definition
