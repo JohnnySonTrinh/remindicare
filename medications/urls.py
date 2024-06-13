@@ -3,5 +3,5 @@ from . import views
 
 
 urlpatterns = [
-    path('prescription', views.user_meds, name='medications'),
+    path('', views.user_meds, name='medications'),
 ]
