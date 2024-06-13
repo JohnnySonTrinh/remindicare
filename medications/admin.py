@@ -1,38 +1,42 @@
-from django.contrib import admin
-from .models import UserPrescription, DoseLog, IntakeSchedule, IntakeTime, Notification
+# from django.contrib import admin
+# from .models import UserPrescription, DoseLog, IntakeSchedule, IntakeTime, Notification, Day
 
-class UserPrescriptionAdmin(admin.ModelAdmin):
-    list_display = ['profile', 'product_type', 'product_name', 'dosage_amount', 'start_date', 'end_date', 'notes']
-    search_fields = ['profile__user__username', 'product_name', 'dosage_amount']
-    list_filter = ['product_type', 'start_date', 'end_date']
+# class UserPrescriptionAdmin(admin.ModelAdmin):
+#     list_display = ['profile', 'product_name', 'product_type', 'dosage_amount', 'dosage_unit']
+#     search_fields = ['profile__user__username', 'product_name', 'product_type']
+#     list_filter = ['product_type', 'dosage_unit']
 
-class DoseLogAdmin(admin.ModelAdmin):
-    list_display = ['intake_schedule', 'intake_time', 'taken_at', 'status', 'created_at']
-    search_fields = ['intake_schedule__userprescription__profile__user__username', 'intake_time__time', 'status']
-    list_filter = ['status', 'created_at']
+# class DoseLogAdmin(admin.ModelAdmin):
+#     list_display = ['userprescription', 'intake_time', 'intake_date', 'taken_at']
+#     search_fields = ['userprescription__profile__user__username', 'intake_time']
+#     list_filter = ['intake_date']
 
-class IntakeScheduleAdmin(admin.ModelAdmin):
-    list_display = ['userprescription', 'days_of_week', 'times_list']
-    search_fields = ['userprescription__profile__user__username', 'days_of_week']
-    list_filter = ['days_of_week']
+# class DayAdmin(admin.ModelAdmin):
+#     list_display = ['name', 'times_list']
 
-    def times_list(self, obj):
-        return ', '.join([str(time) for time in obj.times.all()])
-    times_list.short_description = 'Times'
-
-class IntakeTimeAdmin(admin.ModelAdmin):
-    list_display = ['time']
-    search_fields = ['time']
-
-class NotificationAdmin(admin.ModelAdmin):
-    list_display = ['profile', 'intake_schedule', 'scheduled_time', 'sent_at']
-    search_fields = ['profile__user__username', 'intake_schedule__userprescription__product_name']
-    list_filter = ['sent_at']
+#     def times_list(self, obj):
+#         return ', '.join([str(time) for time in obj.times.all()])
+#     times_list.short_description = 'Times'
+# class IntakeScheduleAdmin(admin.ModelAdmin):
+#     list_display = ['userprescription', 'days']
+#     search_fields = ['userprescription__profile__user__username', 'days']
+#     list_filter = ['days']
 
 
+# class IntakeTimeAdmin(admin.ModelAdmin):
+#     list_display = ['time']
+#     search_fields = ['time']
 
-admin.site.register(UserPrescription, UserPrescriptionAdmin)
-admin.site.register(DoseLog, DoseLogAdmin)
-admin.site.register(IntakeSchedule, IntakeScheduleAdmin)
-admin.site.register(IntakeTime, IntakeTimeAdmin)
-admin.site.register(Notification, NotificationAdmin)
+# class NotificationAdmin(admin.ModelAdmin):
+#     list_display = ['intake_schedule', 'scheduled_time', 'day', 'sent_at', 'status', 'type', 'created_at']
+#     search_fields = ['intake_schedule__userprescription__profile__user__username', 'scheduled_time', 'day']
+#     list_filter = ['status', 'type']
+
+
+
+# admin.site.register(UserPrescription, UserPrescriptionAdmin)
+# admin.site.register(DoseLog, DoseLogAdmin)
+# admin.site.register(IntakeSchedule, IntakeScheduleAdmin)
+# admin.site.register(IntakeTime, IntakeTimeAdmin)
+# admin.site.register(Day, DayAdmin)
+# admin.site.register(Notification, NotificationAdmin)
