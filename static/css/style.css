@@ -28,7 +28,8 @@
 }
 
 img.logo {
-  width: 4.5rem;
+  margin-left: 5rem;
+  height: 50px;
 }
 
 a.nav-link {
