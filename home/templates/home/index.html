@@ -1,5 +1,36 @@
+<!--Prettier Ignore-->
 {% extends "base.html" %}
-
-{% block content %}
-    <h2>Home page</h2>
+<!--Prettier Ignore-->
+{% load static %}
+<!--Prettier Ignore-->
+{% block page-content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 mb-2">
+      <h1 class="display-4">Welcome to RemindiCare</h1>
+      <p class="lead">
+        RemindiCare is your essential companion for managing medications.
+      </p>
+      <p>
+        Easily add and track your medications, ensuring you take the right dose
+        at the right time.
+      </p>
+      <p>
+        RemindiCare is designed to help you stay on top of your health and
+        wellness.
+      </p>
+    </div>
+    <div class="col-md-12">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Register > </a>
+      <a class="btn btn-primary btn-lg mr-3" href="#" role="button">Login ></a>
+    </div>
+    <div class="col-md-12">
+      <img
+        src="{% static 'images/landing-element.webp' %}"
+        alt="Wavy elements across landing page"
+        class="img-fluid"
+      />
+    </div>
+  </div>
+</div>
 {% endblock %}
