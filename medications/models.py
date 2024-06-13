@@ -61,7 +61,7 @@ class IntakeTime(models.Model):
     """
     Represents the specific times for a scheduled intake.
     """
-    intake_schedule = models.ForeignKey(IntakeSchedule, on_delete=models.CASCADE)
+    prescription = models.ForeignKey(UserPrescription, on_delete=models.CASCADE)
     time = models.TimeField()
 
 
@@ -78,7 +78,7 @@ class Day(models.Model):
         ('sunday', 'Sunday'),
     ]
 
-    intake_schedule = models.ForeignKey(IntakeSchedule, on_delete=models.CASCADE)
+    prescription = models.ForeignKey(UserPrescription, on_delete=models.CASCADE)
     name = models.CharField(max_length=9, choices=WEEKDAYS)  # Maximum length is 9 for "Wednesday"
     times = models.ManyToManyField('IntakeTime', related_name='dose_times')
 
