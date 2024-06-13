@@ -19,10 +19,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
-    {% include 'includes/header.html' %}
-    <h1>Hello world!</h1>
-
-    {% block content %} {% endblock %}
+    {% include 'includes/header.html' %} {% block page-content %} {% endblock %}
 
     <!-- Bootstrap JS -->
     <script
