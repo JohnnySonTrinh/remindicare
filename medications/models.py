@@ -38,6 +38,7 @@ class UserPrescription(models.Model):
     notes = models.TextField(null=True, blank=True)
 
     def __str__(self):
+        # pylint: disable=no-member
         return f"{self.profile.user.username} - {self.product_type} {self.product_name} - {self.dosage_amount}"
 
 
@@ -60,6 +61,7 @@ class IntakeSchedule(models.Model):
     times = models.ManyToManyField('IntakeTime', related_name='intake_schedule')
 
     def __str__(self):
+        # pylint: disable=no-member
         return f"{self.userprescription.profile.user.username}'s {self.userprescription.product_type} schedule on {self.days_of_week} at {', '.join([str(time) for time in self.times.all()])}"
 
 
@@ -74,8 +76,8 @@ class DoseLog(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        intake_item = self.intake_time.intake_schedule.user_intake.medication or self.intake_time.intake_schedule.user_intake.supplement
-        return f"{intake_item.name if intake_item else 'N/A'} {self.status} at {self.taken_at}"
+        # pylint: disable=no-member
+        return f"{self.intake_schedule.userprescription.product_name} {self.status} at {self.taken_at}"
 
 
 class Notification(models.Model):
@@ -83,7 +85,7 @@ class Notification(models.Model):
     Represents a notification for a scheduled intake, with status tracking for sent, snoozed, or dismissed notifications.
     """
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    intake_time = models.ForeignKey(IntakeTime, on_delete=models.CASCADE)
+    intake_schedule = models.ForeignKey(IntakeSchedule, on_delete=models.CASCADE)
     scheduled_time = models.DateTimeField()
     sent_at = models.DateTimeField(null=True, blank=True)
     status = models.CharField(max_length=10, choices=[('pending', 'Pending'), ('sent', 'Sent'), ('snoozed', 'Snoozed'), ('dismissed', 'Dismissed')])
@@ -91,5 +93,4 @@ class Notification(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        intake_item = self.intake_time.intake_schedule.user_intake.medication or self.intake_time.intake_schedule.user_intake.supplement
-        return f"Notification for {intake_item.name if intake_item else 'N/A'} at {self.scheduled_time}"
+        return f"Notification for {self.intake_schedule.userprescription.product_name} at {self.scheduled_time}"

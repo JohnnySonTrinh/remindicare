@@ -25,9 +25,9 @@ class IntakeTimeAdmin(admin.ModelAdmin):
     search_fields = ['time']
 
 class NotificationAdmin(admin.ModelAdmin):
-    list_display = ['profile', 'intake_time', 'scheduled_time', 'sent_at', 'status', 'type', 'created_at']
-    search_fields = ['profile__user__username', 'intake_time__time', 'scheduled_time', 'status', 'type']
-    list_filter = ['status', 'type', 'created_at']    
+    list_display = ['profile', 'intake_schedule', 'scheduled_time', 'sent_at']
+    search_fields = ['profile__user__username', 'intake_schedule__userprescription__product_name']
+    list_filter = ['sent_at']
 
 
 
