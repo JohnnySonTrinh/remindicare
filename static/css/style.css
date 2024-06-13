@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --clr-green: #2a834e;
+  --clr-orange: #d15b21;
+  --clr-cream: #f7efe9;
+  --clr-blue: #00c1f3;
+  --clr-purple: #531295;
+  --clr-grey-1: hsl(208, 14%, 56%);
+  --clr-grey-2: hsl(208, 10%, 37%);
+  /* White/black color shades */
+  --clr-white: #ffffff;
+  --clr-black: #111111;
+  /* Primary and secondary font families */
+  --ff-primary: "Averia Serif Libre", serif;
+  --ff-secondary: "Poppins", sans-serif;
+  /* Commonly used CSS properties for consistency */
+  --transition: all 0.3s linear;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
