@@ -4,30 +4,19 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <!-- Logo -->
-      <a class="navbar-brand" href=" {% url 'home' %}">
+      <a class="navbar-brand" href="{% url 'home' %}">
         <img
-          src="{% static 'images/remindicare-logo.png' %}"
+          src="https://res.cloudinary.com/dxr4xewpz/image/upload/v1718213656/Namnlo%CC%88s_design_1_nv20df.png"
           alt="RemindiCare Logo"
           class="logo"
         />
       </a>
-      <!-- Toggle for smaller screens-->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="fa-solid fa-user"></span>
-      </button>
       <!-- Nav items -->
       <div
         class="collapse navbar-collapse justify-content-end"
         id="navbarNavDropdown"
       >
+        <!-- User Icon Dropdown -->
         <ul class="navbar-nav mb-2">
           <li class="nav-item dropdown">
             <a
@@ -40,12 +29,24 @@
               <i class="fa-solid fa-user"></i>
             </a>
             <div class="dropdown-menu justify-content-end">
-              <a class="dropdown-item" href="#">Log In</a>
-              <a class="dropdown-item" href="#">Profile</a>
+              <a class="dropdown-item" href="#">My Profile</a>
+              <a class="dropdown-item" href="#">Add </a>
               <a class="dropdown-item" href="#">Reservations</a>
             </div>
           </li>
         </ul>
+        <!-- Navbar Toggler for smaller screens -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="fa-solid fa-user"></span>
+        </button>
       </div>
     </div>
   </nav>
