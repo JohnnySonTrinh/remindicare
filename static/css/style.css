@@ -20,3 +20,46 @@
   --radius: 0.5rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+
+/* Navbar styles */
+.navbar {
+  background-color: var(--clr-cream);
+  box-shadow: var(--light-shadow);
+}
+
+img.logo {
+  width: 4.5rem;
+}
+
+a.nav-link {
+  font-size: 2rem;
+  color: var(--clr-purple);
+}
+
+.navbar-nav {
+  margin-left: 25px;
+}
+
+.dropdown-menu-right {
+  right: 0;
+  left: auto;
+}
+
+body {
+  background-color: #531295;
+  font-family: var(--ff-secondary);
+  color: var(--clr-cream);
+}
+
+/* Wavy image */
+.img-fluid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+}

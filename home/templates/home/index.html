@@ -1,117 +1,36 @@
-{% extends "base.html" %} {% load static %} {% block page-content %}
-<style>
-  body {
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(
-        rgba(18, 18, 18, 0.225),
-        rgba(102, 102, 102, 0.225)
-      ),
-      url(https://res-console.cloudinary.com/dxr4xewpz/thumbnails/v1/image/upload/v1718283493/Qmctc2lnbi1pbl9henBpYXE=/drilldown)
-        center/cover no-repeat;
-    object-fit: cover;
-  }
-  .container {
-    display: flex;
-    background-color: white;
-    border-radius: 0 1rem 1rem 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 80%;
-    max-width: 1000px;
-    padding-left: 0;
-  }
-  .container img {
-    width: 50%;
-    object-fit: cover;
-  }
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    width: 100%;
-  }
-  .form-container h2 {
-    margin: 0;
-  }
-  .form-container p {
-    margin: 1rem 0;
-  }
-  .form-container label {
-    display: block;
-    margin: 0.5rem 0;
-  }
-  .btn-login {
-    background-color: #d15b21;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    cursor: pointer;
-    margin-top: 1rem;
-  }
-  .btn-login:hover {
-    background-color: #c9302c;
-  }
-  .input-field {
-    margin-bottom: 1rem;
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-  }
-  .radio-group {
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
-  }
-  .btn-container {
-    display: flex;
-    justify-content: center;
-  }
-</style>
-<div>
-  <div class="container">
-    <img
-      src="https://res-console.cloudinary.com/dxr4xewpz/thumbnails/v1/image/upload/v1718278902/Ymctc2hvcnRfYzdjZWly/drilldown"
-      alt=""
-    />
-    <div class="form-container">
-      <h2>Sign In</h2>
-      <p>Create a account? <a href="#">Sign up</a></p>
-      <div class="radio-group">
-        <label>
-          <input type="radio" name="accountType" value="personal" /> For
-          personal
-        </label>
-        <label>
-          <input type="radio" name="accountType" value="caretaker" /> For
-          caretaker
-        </label>
-      </div>
-      <form>
-        <input
-          class="input-field"
-          type="text"
-          name="username"
-          placeholder="Username/Email"
-          required
-        />
-        <input
-          class="input-field"
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-        />
-        <div class="btn-container">
-          <button type="submit" class="btn-login">Sign In</button>
-        </div>
-      </form>
+<!--Prettier Ignore-->
+{% extends "base.html" %}
+<!--Prettier Ignore-->
+{% load static %}
+<!--Prettier Ignore-->
+{% block page-content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 mb-2">
+      <h1 class="display-4">Welcome to RemindiCare</h1>
+      <p class="lead">
+        RemindiCare is your essential companion for managing medications.
+      </p>
+      <p>
+        Easily add and track your medications, ensuring you take the right dose
+        at the right time.
+      </p>
+      <p>
+        RemindiCare is designed to help you stay on top of your health and
+        wellness.
+      </p>
+    </div>
+    <div class="col-md-12">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Register > </a>
+      <a class="btn btn-primary btn-lg mr-3" href="#" role="button">Login ></a>
+    </div>
+    <div class="col-md-12">
+      <img
+        src="{% static 'images/landing-element.webp' %}"
+        alt="Wavy elements across landing page"
+        class="img-fluid"
+      />
     </div>
   </div>
 </div>
-{% endblock%}
+{% endblock %}
