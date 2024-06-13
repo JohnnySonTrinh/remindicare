@@ -11,13 +11,11 @@
           class="logo"
         />
       </a>
-      <!-- Nav items -->
       <div
         class="collapse navbar-collapse justify-content-end"
         id="navbarNavDropdown"
       >
-        <!-- User Icon Dropdown -->
-        <ul class="navbar-nav mb-2">
+        <ul class="navbar-nav mb-2 mr-5">
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -28,14 +26,15 @@
             >
               <i class="fa-solid fa-user"></i>
             </a>
-            <div class="dropdown-menu justify-content-end">
-              <a class="dropdown-item" href="#">My Profile</a>
-              <a class="dropdown-item" href="#">Add </a>
-              <a class="dropdown-item" href="#">Reservations</a>
-            </div>
+            <ul class="dropdown-menu justify-content-end">
+              <li><a class="dropdown-item" href="#">My Profile</a></li>
+              <li><a class="dropdown-item" href="#">Medication</a></li>
+              <li><a class="dropdown-item" href="#">Add Medication</a></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
           </li>
         </ul>
-        <!-- Navbar Toggler for smaller screens -->
+
         <button
           class="navbar-toggler"
           type="button"
@@ -51,3 +50,50 @@
     </div>
   </nav>
 </head>
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{% url 'home' %}">
+    <img
+      src="https://res.cloudinary.com/dxr4xewpz/image/upload/v1718213656/Namnlo%CC%88s_design_1_nv20df.png"
+      alt="RemindiCare Logo"
+      class="logo"
+    />
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+           User Icon
+          <i class="fa-solid fa-user"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">My Profile</a>
+          <a class="dropdown-item" href="#">Medication</a>
+          <a class="dropdown-item" href="#">Add Medication</a>
+          <a class="dropdown-item" href="#">Logout</a>
+          <div class="dropdown-divider"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav> -->
