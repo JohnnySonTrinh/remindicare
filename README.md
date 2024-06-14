@@ -1,6 +1,6 @@
 # [RemindiCare](https://remindicare-c84864436945.herokuapp.com/)
 
-RemindiCare is your essential companion for managing medications. RemindiCare is designed to help you stay on top of your health and wellness.
+The RemindiCare project is a comprehensive solution designed to assist users in managing their medication schedules effectively. As an innovative application, RemindiCare addresses the crucial need for a reliable and user-friendly platform to ensure medication adherence, which is a significant concern in healthcare management. By providing a suite of functionalities, including registration, user authentication, medication schedule management, reminders, tracking, logging, and analytics, RemindiCare aims to enhance the overall user experience and support both patients and caregivers in maintaining optimal health outcomes.
 
 <div align="center">
   <img src="landing-page.png" alt="Landing page">
@@ -9,28 +9,62 @@ RemindiCare is your essential companion for managing medications. RemindiCare is
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/JohnnySonTrinh/remindicare)](https://github.com/JohnnySonTrinh/remindicare/commits/main)
 [![GitHub last commit](https://img.shields.io/github/last-commit/JohnnySonTrinh/remindicare)](https://github.com/JohnnySonTrinh/remindicare/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/JohnnySonTrinh/remindicare)](https://github.com/JohnnySonTrinh/remindicare)
+---
 
-## UX
+## User Experiance
 
-### User Goals
+### Initial Discussion
 
-#### User Stories
+- Medication adherence is critical for the successful treatment of various health conditions, yet it is often challenging for patients to remember to take their medications consistently.
+- Non-adherence can lead to severe health complications, increased healthcare costs, and reduced quality of life.
+- RemindiCare seeks to mitigate these issues by offering a robust and intuitive app that not only reminds users to take their medications but also allows them to log and track their intake, view adherence patterns, and share important data with their healthcare providers.
 
-All user stories are mapped to Issues in Github, with acceptance criteria and tasks. We tracked the issues with a Github Project [progress board](https://github.com/users/JohnnySonTrinh/projects/7) and grouped them into Epics so that we could follow Agile methodology. <br>
+### User Stories
 
-### Structure
+- All user stories are mapped to Issues in Github, with acceptance criteria and tasks.
+- We tracked the issues with a Github Project [progress board](https://github.com/users/JohnnySonTrinh/projects/7) and grouped them into Epics so that we could follow Agile methodology.
 
-#### Entity relationship diagram
+### Project Goals
 
-<!-- These are the models that we used to build the site, and how they relate -->
+- The main goal of RemindiCare is to create an simple, intuitive and reliable medication management app to enhance user adherence and support healthcare needs.
+- Designed with a user-centric approach, the app aims to meet the needs of patients, caregivers, and healthcare providers.
+- By leveraging a well-designed database, RemindiCare ensures that all user data is managed effectively.
+---
 
-### Features
+## Design
 
-#### Wireframes
-To follow best practice, wireframes were developed for mobile and desktop sizes. We used [Balsamiq](https://balsamiq.com/wireframes) and [Figma](https://www.figma.com/design/M7sAzpW0rdoQYFe8Wh78Re/RemindiCare?node-id=0-1&t=Cd9Tcfz4qpEbdWce-0) to design our app wireframes.
+### Wireframes
+- To follow best practice and ensure that our site will look good on all screensizes, wireframes were developed for mobile and desktop sizes. 
+  - We used [Balsamiq](https://balsamiq.com/wireframes) and [Figma](https://www.figma.com/design/M7sAzpW0rdoQYFe8Wh78Re/RemindiCare?node-id=0-1&t=Cd9Tcfz4qpEbdWce-0) to design our app wireframes.
+
 <!-- Add Screenshot of wireframes -->
 
+<details>
+  <summary>Click to view Wireframes</summary>
+    ![Screenshots of wireframes]()
+    ![Screenshots of wireframes]()
+</details>
+
+### Database Design
+- This database uses a Postgres database form Code Institute.
+<details>
+  <summary>Click to view ER Diagram</summary>
+    ![ER Diagram for this project]()
+</details>
+
+### Color Scheme
+
+- For the RemindiCare project, we have thoughtfully incorporated the color scheme of the partnering company to ensure a cohesive and professional appearance.
+- By aligning our app’s design with the company's established visual identity, we aim to create a seamless and recognizable user experience.
+
+<details>
+  <summary>Click to view color palett</summary>
+    ![RemindiCare color palett]()
+</details>
+<br>
+
 We used CSS `:root` variables to easily update the global colour scheme by changing only one value, instead of everywhere in the CSS file.
+
 
 ```css
 :root {
@@ -68,13 +102,19 @@ The main font is Poppins, which is clear and easy to read, for accessibility:
   <img src="static/images/readme/font-poppins.png" alt="Main font" width="400">
 </div>
 
-### Screenshots
+---
 
-<!-- Screenshots of the project -->
+## Features
+ToDo!
 
-## Future Implementations
+
+
+---
+
+## Future Features
 
 <!-- These are all the awesome things that the page will have in the future -->
+---
 
 ## Tools & Technologies Used
 
@@ -95,9 +135,9 @@ The main font is Poppins, which is clear and easy to read, for accessibility:
 - [![Bootstrap](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
 - [![Font Awesome](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) used for the icons.
 - [![ChatGPT](https://img.shields.io/badge/ChatGPT-grey?logo=chromatic&logoColor=75A99C)](https://chat.openai.com) used to help debug, troubleshoot, and explain things.
-
+---
 ## Credits
 
-<!--  Resources -->
+Todo!
 
 Thanks to the whole team!
