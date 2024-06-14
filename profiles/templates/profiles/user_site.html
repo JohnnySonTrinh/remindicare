@@ -1,5 +1,130 @@
 {% extends "base.html" %}
 
-{% block content %}
-    <h2>User Profile</h2>
+
+
+{% block page-content %}
+<style>
+  .container {
+    .tab-content {
+        padding-top: 1rem;
+    }
+
+    .quantity-control {
+        display: flex;
+        align-items: center;
+    }
+
+    .quantity-btn {
+        background-color: #e0e0e0;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .schedule-btn {
+        background-color: #d9534f;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .schedule-btn i {
+        margin-right: 10px;
+    }
+
+    .total-price {
+        margin-left: 10px;
+    }
+    li {
+        background: white;
+    }
+  }
+    
+</style>
+<div class="container mt-5">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="sessions-tab" data-toggle="tab" href="#1" role="tab" aria-controls="sessions" aria-selected="true">Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="custom-services-tab" data-toggle="tab" href="#2" role="tab" aria-controls="custom-services" aria-selected="false">Medication</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="bundles-tab" data-toggle="tab" href="#3" role="tab" aria-controls="bundles" aria-selected="false"><i class="fa-solid fa-plus"></i>Add Medication</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="sessions" role="tabpanel" aria-labelledby="sessions-tab">
+            <div class="list-group">
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <input type="radio" id="alvedon" name="session" class="mr-2" checked>
+                        <label for="alvedon">
+                            <div>
+                                <h5>Alvedon</h5>
+                                <p>Used for pain relief and fever reduction.</p>
+                                <small>Day/night</small>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <input type="radio" id="ipren" name="session" class="mr-2">
+                        <label for="ipren">
+                            <div>
+                                <h5>Ipren</h5>
+                                <p>An anti-inflammatory drug used to treat pain, fever, and inflammation.</p>
+                                <small>Night</small>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <input type="radio" id="kavepenin" name="session" class="mr-2">
+                        <label for="kavepenin">
+                            <div>
+                                <h5>Kåvepenin</h5>
+                                <p>An antibiotic used to treat bacterial infections.</p>
+                                <small>Day</small>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <input type="radio" id="nasonex" name="session" class="mr-2">
+                        <label for="nasonex">
+                            <div>
+                                <h5>Nasonex</h5>
+                                <p>A nasal spray used to treat allergic rhinitis.</p>
+                                <small>Day</small>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <input type="radio" id="losec" name="session" class="mr-2">
+                        <label for="losec">
+                            <div>
+                                <h5>Losec</h5>
+                                <p>A proton pump inhibitor used to treat gastroesophageal reflux disease (GERD) and other stomach acid-related conditions.</p>
+                                <small>Day</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
