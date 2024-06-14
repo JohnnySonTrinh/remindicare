@@ -1,40 +1,31 @@
-from django.views.generic import TemplateView, DetailView
+from typing import Any
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, get_object_or_404
-from django.views import generic
-from .models import Profile
-from medications.models import UserPrescription 
+from django.views.generic import TemplateView
+from django.shortcuts import get_object_or_404
+from .models import Patient, Caregiver
 
-# Create your views here.
-class Profiles(LoginRequiredMixin, TemplateView):
-    """User Profile Page"""
+class ProfileView(LoginRequiredMixin, TemplateView):
+    template_name = 'profiles/user_profile.html'  # Specify your template name here
 
-    model = Profile
-    template_name = 'profiles/user_profile.html'
-    context_object_name = 'profile'
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
     
-    def get_context_data(self, **kwargs):
-        context = {
-            'profile': None,
-            'prescriptions': None,
-        }
-
         user = self.request.user
         profile = None
 
-        try:
-            profile = Profile.objects.get(user=user)
+        context = {
+            "profile": None,
+            "title": None,
+            "patients": None,
+        }
+
+        if hasattr(user, 'patient'):
+            profile = get_object_or_404(Patient, user=user)
             context['profile'] = profile
-        except Profile.DoesNotExist:
-            context['profile'] = None
+            context['title'] = 'User'
+        elif hasattr(user, 'caregiver'):
+            profile = get_object_or_404(Caregiver, user=user)
+            context['profile'] = profile
+            context['title'] = 'Caregiver'
+            context['patients'] = Patient.objects.filter(caregiver=profile)
 
-        try:
-            context['prescriptions'] = UserPrescription.objects.filter(profile=profile)
-        except UserPrescription.DoesNotExist:
-            context['prescriptions'] = None
-       
         return context
-
-
-def caregiver_user(request):
-    return render(request, 'profiles/caretaker_user.html')
