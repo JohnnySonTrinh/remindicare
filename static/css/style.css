@@ -59,18 +59,18 @@ body {
   box-shadow: var(--light-shadow);
 }
 
+.dropdown-menu-left {
+  right: 0;
+  left: auto;
+}
+
 img.logo {
-  margin-left: 5rem;
   height: 50px;
 }
 
 a.nav-link {
   font-size: 2rem;
   color: var(--clr-purple);
-}
-
-.navbar-nav {
-  margin-left: 25px;
 }
 
 .dropdown-menu-right {
@@ -89,6 +89,10 @@ a.nav-link {
   height: 100%;
   object-fit: cover;
   opacity: 1;
+}
+
+.navbar .dropdown-menu {
+  position: absolute;
 }
 
 /* Login styles */
