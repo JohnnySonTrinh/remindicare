@@ -28,17 +28,12 @@
 }
 
 img.logo {
-  margin-left: 5rem;
   height: 50px;
 }
 
 a.nav-link {
   font-size: 2rem;
   color: var(--clr-purple);
-}
-
-.navbar-nav {
-  margin-left: 25px;
 }
 
 .dropdown-menu-right {
