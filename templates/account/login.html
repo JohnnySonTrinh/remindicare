@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% url 'account_login' as login_url %} {% url 'account_signup' as signup_url %} {% url 'account_logout' as logout_url %}
 {% load i18n %}
 {% load account socialaccount %}
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
