@@ -27,14 +27,15 @@ class Medication(models.Model):
     product_type = models.CharField(max_length=20, choices=[('medication', 'Medication'), ('supplement', 'Supplement')])
     name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
-    dosage_unit = models.CharField(max_length=50, choices=DOSAGE_UNITS)
-    dosage_type = models.CharField(max_length=50, choices=DOSAGE_TYPES)
+    unit = models.CharField(max_length=50, choices=DOSAGE_UNITS)
+    type = models.CharField(max_length=50, choices=DOSAGE_TYPES)
+    strength = models.CharField(max_length=50, null=True, blank=True)
     dosage_amount = models.CharField(max_length=50)
     dosage_frequency = models.CharField(max_length=500)
     image = models.ImageField(upload_to='static/images/', default='', null=True, blank=True)
 
     def __str__(self):
-        return f"{self.name} - {self.dosage_unit}"
+        return f"{self.name} - {self.unit} {self.strength if self.strength else ''}"
 
 
 class Prescription(models.Model):
