@@ -11,7 +11,26 @@ The RemindiCare project is a comprehensive solution designed to assist users in 
 [![GitHub repo size](https://img.shields.io/github/repo-size/JohnnySonTrinh/remindicare)](https://github.com/JohnnySonTrinh/remindicare)
 ---
 
-## User Experiance
+## Table of content
+
+- [User Experience](#user-experience)
+	- [Initial Dicsussion](#initial-discussion)
+	- [User Stories](#user-stories)
+	- [Project Goals](#project-goals)
+- [Design](#design)
+	- [Wireframes](#wireframes)
+	- [Database Design](#database-design)
+	- [Color Scheme](#color-scheme)
+	- [Typography](#typography)
+- [Features](#features)
+- [Future Features](#future-features) 
+- [Tools & Technologies Used](#tools-&-technologies-used)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
+---
+
+## User Experience
 
 ### Initial Discussion
 
