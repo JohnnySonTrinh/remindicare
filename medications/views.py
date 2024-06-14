@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
-from medications.models import Day, IntakeSchedule, Medication, Prescription
+from medications.models import IntakeSchedule, Prescription
 
 @login_required
 def prescription_list(request):
