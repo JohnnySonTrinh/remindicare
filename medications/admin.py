@@ -19,15 +19,11 @@ class DayAdmin(admin.ModelAdmin):
     times_list.short_description = 'Times'
 
 class IntakeScheduleAdmin(admin.ModelAdmin):
-    list_display = ['userprescription', 'days_list', 'times_list']
+    list_display = ['userprescription', 'days_list']
 
     def days_list(self, obj):
         return ', '.join([str(day) for day in obj.days.all()])
     days_list.short_description = 'Days'
-
-    def times_list(self, obj):
-        return ', '.join([str(time) for time in obj.times.all()])
-    times_list.short_description = 'Times'
 
 
 class IntakeTimeAdmin(admin.ModelAdmin):
