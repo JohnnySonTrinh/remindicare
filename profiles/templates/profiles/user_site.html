@@ -48,6 +48,15 @@
   }
     
 </style>
+<!-- {% if medicine %}
+    {% for medicine in medicines %}
+    <h5>{{ medicine.name }}</h5>
+    <p>{{ medicine.dosage }}</p>
+    <p>{{ medicine.schedule }}</p>
+    <p>{{ prescription.description }}</p>
+{% endfor %}
+{% endif %} -->
+
 <div class="container mt-5">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
@@ -68,9 +77,15 @@
                         <input type="radio" id="alvedon" name="session" class="mr-2" checked>
                         <label for="alvedon">
                             <div>
-                                <h5>Alvedon</h5>
-                                <p>Used for pain relief and fever reduction.</p>
-                                <small>Day/night</small>
+                                <h5>Alvedon</h5> {{ medicine.name }}
+                                <p>How much: {{ medicine.dosage }} </p>
+                                <p>Next dose: </p>
+                                <p>Description:</p> {{ prescription.description }}
+                                <div>
+                                    <button class="btn btn-primary">Taken</button>
+                                    <button class="btn btn-secondary">Snooze</button>
+                                    <button class="btn btn-primary">Skipped</button>
+                                </div> 
                             </div>
                         </label>
                     </div>
@@ -127,4 +142,82 @@
         </div>
     </div>
 </div>
+
+<div class="container mt-5">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="sessions-tab" data-toggle="tab" href="#1" role="tab" aria-controls="sessions" aria-selected="true">Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="custom-services-tab" data-toggle="tab" href="#2" role="tab" aria-controls="custom-services" aria-selected="false">Medication</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="bundles-tab" data-toggle="tab" href="#3" role="tab" aria-controls="bundles" aria-selected="false"><i class="fa-solid fa-plus"></i>Add Medication</a>
+        </li>
+    </ul>
+
+    <!-- User Profile -->
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="sessions" role="tabpanel" aria-labelledby="sessions-tab">
+            <div class="list-group">
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <input type="radio" id="alvedon" name="session" class="mr-2" checked>
+                        <label for="alvedon">
+                            <div>
+                                <h5>Name:</h5> {{ profile.user.username }}
+
+                                    <!-- {% if patients %}
+                                        {% for patient in patients %}
+                                        <p>Patient: {{ patient }}</p>
+                                        {% endfor %}
+                                    {% endif %} -->
+
+
+                                <p>Age: {{ profile.age }} </p>
+                                <p>Phone: {{ user.phone }}</p>
+                                <p>Email: {{ user.email }}</p> 
+                                <p>Adress: {{ user.adress }}</p>
+                                <p>Caretaker: {{ user.caretaker }}</p>
+                                <div>
+                                    <button class="btn btn-primary">Edit</button>
+                                </div> 
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add medication -->
+<div class="container">
+    <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="sessions" role="tabpanel" aria-labelledby="sessions-tab">
+                <div class="list-group">
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <input type="radio" id="alvedon" name="session" class="mr-2" checked>
+                            <label for="alvedon">
+                                <div>
+                                    <h5>Medication Form:</h5>
+                                    <label for="id_medicine_name">Medicine Name</label>
+                                    <input type="text" name="medicine_name" id="id_medicine_name" value="{{ medicine.name }}">
+                                    <label for="id_dosage">Dosage</label>
+                                    <input type="text" name="dosage" id="id_dosage" value="{{ medicine.dosage }}">
+                                    <label for="id_schedule">Schedule</label>
+                                    <input type="text" name="schedule" id="id_schedule" value="{{ medicine.schedule }}">
+                                    <label for="id_description">Description</label>
+                                    <input type="text" name="description" id="id_description" value="{{ prescription.description }}">
+                                    <div>
+                                        <button class="btn btn-primary">Edit</button>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
 {% endblock %}
+
