@@ -27,8 +27,14 @@
   box-shadow: var(--light-shadow);
 }
 
+
+
+.dropdown-menu-left {
+  right: 0;
+  left: auto;
+}
+
 img.logo {
-  margin-left: 5rem;
   height: 50px;
 }
 
@@ -37,17 +43,13 @@ a.nav-link {
   color: var(--clr-purple);
 }
 
-.navbar-nav {
-  margin-left: 25px;
-}
-
 .dropdown-menu-right {
   right: 0;
   left: auto;
 }
 
 body {
-  background-color: #531295;
+  background-color:  #01232b95;
   font-family: var(--ff-secondary);
   color: var(--clr-cream);
 }
@@ -63,6 +65,10 @@ body {
   height: 100%;
   object-fit: cover;
   opacity: 1;
+}
+
+.navbar .dropdown-menu {
+  position: absolute;
 }
 
 /* Login styles */
