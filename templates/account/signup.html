@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
 {% load i18n %}
 {% block page-content %}
 <div class="bg-logform">
-  <div class="container-sign-up">
-    <img src="https://res-console.cloudinary.com/dxr4xewpz/thumbnails/v1/image/upload/v1718278902/Ymctc2hvcnRfYzdjZWly/drilldown" alt="Background Image">
+  <div class="container-sign-up ">
+    <img src="{% static 'images/bg-short.png' %}" alt="Background Image" class="d-none d-md-inline-flex">
     <div class="form-container">
         <h2>Sign Up</h2>
         <p>

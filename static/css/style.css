@@ -139,7 +139,7 @@ body {
       rgba(18, 18, 18, 0.225),
       rgba(102, 102, 102, 0.225)
     ),
-    url(https://res-console.cloudinary.com/dxr4xewpz/thumbnails/v1/image/upload/v1718283493/Qmctc2lnbi1pbl9henBpYXE=/drilldown)
+    url(/static/images/bg-signinout.webp)
       center/cover no-repeat;
   object-fit: cover;
   display: flex;
