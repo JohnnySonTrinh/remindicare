@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 {% url 'account_login' as login_url %} {% url 'account_signup' as signup_url %} {% url 'account_logout' as logout_url %}
+{% load static %}
 {% load i18n %}
 {% load account socialaccount %}
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 {% block page-content %}
   <div class="bg-logform">
     <div class="container-login">
-      <img
-        src="https://res-console.cloudinary.com/dxr4xewpz/thumbnails/v1/image/upload/v1718278902/Ymctc2hvcnRfYzdjZWly/drilldown"
-        alt="Left-side image"
-      />
+      <img src="{% static 'images/bg-short.png' %}" alt="Background Image" class="d-none d-md-inline-flex">
       <div class="form-container">
         <h2>Sign In</h2>
         <p>Create an account? <a href="{% url 'account_signup' %}">Sign up</a></p>
