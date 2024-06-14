@@ -1,5 +1,7 @@
 # [RemindiCare](https://remindicare-c84864436945.herokuapp.com/)
 
+RemindiCare is your essential companion for managing medications. RemindiCare is designed to help you stay on top of your health and wellness.
+
 <div align="center">
   <img src="landing-page.png" alt="Landing page">
 </div>
@@ -25,6 +27,8 @@ All user stories are mapped to Issues in Github, with acceptance criteria and ta
 ### Features
 
 #### Wireframes
+To follow best practice, wireframes were developed for mobile and desktop sizes. We used [Balsamiq](https://balsamiq.com/wireframes) and [Figma](https://www.figma.com/design/M7sAzpW0rdoQYFe8Wh78Re/RemindiCare?node-id=0-1&t=Cd9Tcfz4qpEbdWce-0) to design our app wireframes.
+<!-- Add Screenshot of wireframes -->
 
 We used CSS `:root` variables to easily update the global colour scheme by changing only one value, instead of everywhere in the CSS file.
 
@@ -53,7 +57,16 @@ We used CSS `:root` variables to easily update the global colour scheme by chang
 
 #### Typography
 
-<!-- Screenshots of the google fonts -->
+We used Google Fonts for this project. The titles are Averia serif libre.
+<div align="left">
+  <img src="static/images/readme/font-averia-serif-libre.png" alt="Title font" width="400">
+</div>
+
+The main font is Poppins, which is clear and easy to read, for accessibility:
+
+<div align="left">
+  <img src="static/images/readme/font-poppins.png" alt="Main font" width="400">
+</div>
 
 ### Screenshots
 
