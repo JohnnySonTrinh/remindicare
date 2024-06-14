@@ -64,3 +64,82 @@ body {
   object-fit: cover;
   opacity: 1;
 }
+
+/* Login styles */
+.bg-logform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background: linear-gradient(
+      rgba(18, 18, 18, 0.225),
+      rgba(102, 102, 102, 0.225)
+    ),
+    url(https://res-console.cloudinary.com/dxr4xewpz/thumbnails/v1/image/upload/v1718283493/Qmctc2lnbi1pbl9henBpYXE=/drilldown)
+      center/cover no-repeat;
+  object-fit: cover;
+}
+
+.container-login {
+  display: flex;
+  background-color: white;
+  border-radius: 0 1rem 1rem 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 1000px;
+  padding-left: 0;
+  .container img {
+    width: 50%;
+    object-fit: cover;
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
+    color: black;
+  }
+  .form-container h2 {
+    margin: 0;
+  }
+  .form-container p {
+    margin: 1rem 0;
+  }
+  .form-container label {
+    display: block;
+    margin: 0.5rem 0;
+  }
+  .btn-login {
+    background-color: #D15B21;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  .btn-login:hover {
+    background-color: #C9302C;
+  }
+  .input-field {
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+  }
+  .radio-group {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+  }
+  .btn-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Login styles ends */
