@@ -1,38 +1,70 @@
-{% extends "account/base_entrance.html" %}
-{% load allauth i18n %}
-{% block head_title %}
-    {% trans "Signup" %}
-{% endblock head_title %}
-{% block content %}
-    {% element h1 %}
-        {% trans "Sign Up" %}
-    {% endelement %}
-    {% setvar link %}
-        <a href="{{ login_url }}">
-        {% endsetvar %}
-        {% setvar end_link %}
-        </a>
-    {% endsetvar %}
-    {% element p %}
-        {% blocktranslate %}Already have an account? Then please {{ link }}sign in{{ end_link }}.{% endblocktranslate %}
-    {% endelement %}
-    {% if not SOCIALACCOUNT_ONLY %}
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block page-content %}
+<div class="bg-logform">
+  <div class="container-sign-up ">
+    <img src="{% static 'images/bg-short.png' %}" alt="Background Image" class="d-none d-md-inline-flex">
+    <div class="form-container">
+        <h2>Sign Up</h2>
+        <p>
+            Already have an account?
+            <a href="{{ login_url }}">Sign in</a>
+        </p>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="accountType" value="personal" /> For
+            personal
+          </label>
+          <label>
+            <input type="radio" name="accountType" value="caretaker" /> For
+            caretaker
+          </label>
+        </div>
+        {% if not SOCIALACCOUNT_ONLY %}
         {% url 'account_signup' as action_url %}
-        {% element form form=form method="post" action=action_url tags="entrance,signup" %}
-            {% slot body %}
-                {% csrf_token %}
-                {% element fields form=form unlabeled=True %}
-                {% endelement %}
-                {{ redirect_field }}
-            {% endslot %}
-            {% slot actions %}
-                {% element button tags="prominent,signup" type="submit" %}
-                    {% trans "Sign Up" %}
-                {% endelement %}
-            {% endslot %}
-        {% endelement %}
-    {% endif %}
-    {% if SOCIALACCOUNT_ENABLED %}
-        {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-    {% endif %}
-{% endblock content %}
+        <form method="post" action="{{ action_url }}">
+        {% csrf_token %}
+        <input
+          class="input-field"
+          type="text"
+          name="signup"
+          placeholder="Username/Email"
+          required
+        />
+        <input
+          class="input-field"
+          type="text"
+          name="signup"
+          placeholder="Phone"
+          required
+        />
+        <input
+          class="input-field"
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <input
+          class="input-field"
+          type="password"
+          name="password"
+          placeholder="Confirm Password"
+          required
+        />
+        {{ redirect_field }}
+        <div class="btn-container">
+            <button type="submit" class="btn-login">Create an account</button>
+        </div>
+      </form>
+      {% endif %}
+      {% if SOCIALACCOUNT_ENABLED %}
+      {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock%}
+
+
