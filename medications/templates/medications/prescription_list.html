@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block page-content %}
+    <h1>All Prescriptions</h1>
+    {% for prescription in prescriptions %}
+    <h2>Patient: {{ prescription.user }} - Caregiver: {{ prescription.caregiver}}</h2>
+        <ul>
+            <li>
+                {% for schedule in schedules %}
+                ----------------
+                    {% if schedule.prescription == prescription %}
+                        <ul>
+                            <li>Medication: {{ schedule.medication }}</li>
+                            <li>Dose amount: {{ schedule.medication.dosage_amount }} {{ schedule.medication.dosage_type }}</li>
+                            <li>{{ medication.dosage_units }}</li>
+                        </ul>
+                        <h5>Days to take the dose</h5>
+                        <ul>
+                        {% for day in schedule.days.all %}
+                            <li>
+                                {{ day.name }}
+                                {% for time in schedule.times.all %}
+                                    Take at: {{ time.time }}
+                                {% endfor %}
+                            {% endfor %}
+                            </li>
+                        </ul>
+                    {% endif %}
+                ----------------
+                {% endfor %}
+            </li>
+        </ul>
+    {% endfor %}
+   
+{% endblock %}
+
+<!-- {% for schedule in schedules %}
+    {% if schedule.prescription == prescription %}
+        <ul>
+            <li>Patient: {{ schedule.prescription.user }}</li>
+            <li>Medication: {{ schedule.medication }}</li>
+            <li>Dose amount: {{ schedule.medication.dosage_amount }} {{ schedule.medication.dosage_type }}</li>
+            <li>{{ schedule.medication.dosage_units }}</li>
+        </ul>
+        <h3>Days to take the dose</h3>
+        <ul>
+        {% for day in days %}
+            <li>{{ day.name }} - 
+                {% for time in times %}
+                Take at: 
+                <span>- {{ time.time }}</span>
+                {% endfor %}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endfor %} -->
