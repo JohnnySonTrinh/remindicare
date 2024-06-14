@@ -1,118 +1,126 @@
-# from django.db import models
-# from profiles.models import Profile
+from django.db import models
+from profiles.models import Patient, Caregiver
+
+class Medication(models.Model):
+    """
+    Represents a medication or supplement with dosage information.
+    """
+    DOSAGE_UNITS = [
+        ('mg', 'mg'),
+        ('µg', 'µg'),
+        ('g', 'g'),
+        ('ml', 'ml'),
+        ('l', 'l'),
+        ('IU', 'IU')
+    ]
+
+    DOSAGE_TYPES = [
+        ('pill', 'Pill'),
+        ('liquid', 'Liquid'),
+        ('injection', 'Injection'),
+        ('capsule', 'Capsule'),
+        ('tablet', 'Tablet'),
+        ('ointment', 'Ointment'),
+        ('powder', 'Powder'),
+    ]
+
+    product_type = models.CharField(max_length=20, choices=[('medication', 'Medication'), ('supplement', 'Supplement')])
+    name = models.CharField(max_length=200)
+    description = models.TextField(null=True, blank=True)
+    dosage_unit = models.CharField(max_length=50, choices=DOSAGE_UNITS)
+    dosage_type = models.CharField(max_length=50, choices=DOSAGE_TYPES)
+    dosage_amount = models.CharField(max_length=50)
+    dosage_frequency = models.CharField(max_length=500)
+    image = models.ImageField(upload_to='static/images/', default='', null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.dosage_unit}"
 
 
-# class UserPrescription(models.Model):
-#     """
-#     Represents the intake record of a user, indicating whether it's a medication or supplement,
-#     and includes dosage and timing information.
-#     """
-#     DOSAGE_UNITS = [
-#         ('mg', 'mg'),
-#         ('µg', 'µg'),
-#         ('g', 'g'),
-#         ('ml', 'ml'),
-#         ('l', 'l'),
-#         ('IU', 'IU')
-#     ]
+class Prescription(models.Model):
+    """
+    Represents a prescription for a user, possibly managed by a caregiver.
+    """
+    user = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='prescriptions')
+    caregiver = models.ForeignKey(Caregiver, null=True, blank=True, on_delete=models.CASCADE, related_name='prescriptions')
+    description = models.TextField(null=True, blank=True)
+    medications = models.ManyToManyField(Medication, related_name='prescriptions')
+    start_date = models.DateField()
+    end_date = models.DateField(null=True, blank=True)
+    is_on_going = models.BooleanField(default=False)
+    valid_until = models.DateField(null=True, blank=True)
+    notes = models.TextField(null=True, blank=True)
 
-#     DOSAGE_TYPES = [
-#         ('pill', 'Pill'),
-#         ('liquid', 'Liquid'),
-#         ('injection', 'Injection'),
-#         ('capsule', 'Capsule'),
-#         ('tablet', 'Tablet'),
-#         ('ointment', 'Ointment'),
-#         ('powder', 'Powder'),
-#     ]
+    def __str__(self):
+        return f"Prescription for: {self.user.user.username}"
 
 
-#     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-#     product_type = models.CharField(max_length=20, choices=[('medication', 'Medication'), ('supplement', 'Supplement')])
-#     product_name = models.CharField(max_length=200)
-#     dosage_unit = models.CharField(max_length=50, choices=DOSAGE_UNITS)
-#     dosage_type = models.CharField(max_length=50, choices=DOSAGE_TYPES)
-#     dosage_amount = models.CharField(max_length=50)
-#     description = models.TextField(null=True, blank=True)
-#     image = models.ImageField(upload_to='static/images/', default='', blank=True)
-#     start_date = models.DateField()
-#     is_on_going = models.BooleanField(default=False)
-#     end_date = models.DateField(null=True, blank=True)
-#     presc_valid_until = models.DateField(null=True, blank=True) # prescription valid until so a reminder can be sent to renew
-#     notes = models.TextField(null=True, blank=True) # Notes to caregiver
+class IntakeSchedule(models.Model):
+    """
+    Represents the intake schedule for a prescription, specifying the days of the week and times.
+    """
+    prescription = models.ForeignKey(Prescription, on_delete=models.CASCADE, related_name='schedules')
+    medication = models.ForeignKey(Medication, on_delete=models.CASCADE, related_name='schedules')
+    days = models.ManyToManyField('Day', related_name='days')
+    times = models.ManyToManyField('IntakeTime', related_name='times')
 
-#     def __str__(self):
-#         # pylint: disable=no-member
-#         return f"{self.profile.user.username} - {self.product_type} {self.product_name} - {self.dosage_amount}"
-
-# class IntakeSchedule(models.Model):
-#     """
-#     Represents the schedule for a user's intake, specifying the days of the week.
-#     """
-#     userprescription = models.ForeignKey(UserPrescription, on_delete=models.CASCADE)
-#     days = models.ManyToManyField('Day', related_name="weekdays")  # e.g., "Monday, Wednesday, Friday"
-    
-
-#     def __str__(self):
-#         # pylint: disable=no-member
-#         return f"{self.userprescription.profile.user.username}'s {self.userprescription.product_type} schedule on {self.days}"
-
-# class IntakeTime(models.Model):
-#     """
-#     Represents the specific times for a scheduled intake.
-#     """
-#     prescription = models.ForeignKey(UserPrescription, on_delete=models.CASCADE)
-#     time = models.TimeField()
+    def __str__(self):
+        return f"{self.prescription.user.user.username}'s schedule - {self.medication.name}"
 
 
-#     def __str__(self):
-#         return f"{self.time}"
-    
-    
-# class Day(models.Model):
-#     WEEKDAYS = [
-#         ('monday', 'Monday'),
-#         ('tuesday', 'Tuesday'),
-#         ('wednesday', 'Wednesday'),
-#         ('thursday', 'Thursday'),
-#         ('friday', 'Friday'),
-#         ('saturday', 'Saturday'),
-#         ('sunday', 'Sunday'),
-#     ]
+class IntakeTime(models.Model):
+    """
+    Represents specific intake times for a prescription.
+    """
+    time = models.TimeField()
 
-#     prescription = models.ForeignKey(UserPrescription, on_delete=models.CASCADE)
-#     name = models.CharField(max_length=9, choices=WEEKDAYS)  # Maximum length is 9 for "Wednesday"
-#     times = models.ManyToManyField('IntakeTime', related_name='dose_times')
-
-#     def __str__(self):
-#         return f"{self.name} - {self.times}"
-
-# class Notification(models.Model):
-#     """
-#     Represents a notification for a scheduled intake, with status tracking for sent, snoozed, or dismissed notifications.
-#     """
-#     intake_schedule = models.ForeignKey(IntakeSchedule, on_delete=models.CASCADE)
-#     scheduled_time = models.ForeignKey(IntakeTime, on_delete=models.CASCADE)
-#     day = models.ForeignKey(Day, on_delete=models.CASCADE)
-#     sent_at = models.DateTimeField(null=True, blank=True)
-#     status = models.CharField(max_length=10, choices=[('pending', 'Pending'), ('sent', 'Sent'), ('snoozed', 'Snoozed'), ('dismissed', 'Dismissed')])
-#     type = models.CharField(max_length=20, default='reminder')
-#     created_at = models.DateTimeField(auto_now_add=True)
-
-#     def __str__(self):
-#         return f"Notification for {self.intake_schedule.userprescription.product_name}"
+    def __str__(self):
+        return f"{self.time}"
 
 
-# class DoseLog(models.Model):
-#     """
-#     Logs the status of each dose taken, missed, or skipped, along with the time it was recorded.
-#     """
-#     notification = models.ForeignKey(Notification, on_delete=models.PROTECT)
-#     user = models.ForeignKey(Profile, on_delete=models.PROTECT) 
-#     taken_at = models.DateTimeField(blank=True, null=True)
-#     status = models.CharField(max_length=10, choices=[('taken', 'Taken'), ('missed', 'Missed'), ('skipped', 'Skipped')], blank=True, null=True)
-#     created_at = models.DateTimeField(auto_now_add=True)
+class Day(models.Model):
+    """
+    Represents a day of the week for scheduling purposes.
+    """
+    WEEKDAYS = [
+        ('monday', 'Monday'),
+        ('tuesday', 'Tuesday'),
+        ('wednesday', 'Wednesday'),
+        ('thursday', 'Thursday'),
+        ('friday', 'Friday'),
+        ('saturday', 'Saturday'),
+        ('sunday', 'Sunday'),
+    ]
 
-#     def __str__(self):
-#         # pylint: disable=no-member
-#         return f"{self.notification.intake_schedule.userprescription.product_name} {self.status} at {self.taken_at}"
+    name = models.CharField(max_length=9, choices=WEEKDAYS)
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+class Notification(models.Model):
+    """
+    Represents a notification for a scheduled intake, with status tracking.
+    """
+    intake_time = models.ForeignKey(IntakeTime, on_delete=models.CASCADE, related_name='notifications')
+    sent_at = models.DateTimeField(null=True, blank=True)
+    status = models.CharField(max_length=10, choices=[('pending', 'Pending'), ('sent', 'Sent'), ('snoozed', 'Snoozed'), ('dismissed', 'Dismissed')])
+    type = models.CharField(max_length=20, default='reminder')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Notification for {self.intake_time.schedule.prescription.user.user.username}"
+
+
+class DoseLog(models.Model):
+    """
+    Logs the status of each dose taken, missed, or skipped.
+    """
+    notification = models.ForeignKey(Notification, on_delete=models.PROTECT, related_name='dose_logs')
+    user = models.ForeignKey(Patient, on_delete=models.PROTECT, related_name='dose_logs')
+    taken_at = models.DateTimeField(blank=True, null=True)
+    status = models.CharField(max_length=10, choices=[('taken', 'Taken'), ('missed', 'Missed'), ('skipped', 'Skipped')], blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.notification.intake_time.schedule.prescription.user.user.username} {self.status} at {self.taken_at}"
