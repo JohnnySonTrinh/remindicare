@@ -55,7 +55,7 @@ class IntakeSchedule(models.Model):
 
     def __str__(self):
         # pylint: disable=no-member
-        return f"{self.userprescription.profile.user.username}'s {self.userprescription.product_type} schedule on {self.days} at {', '.join([str(time) for time in self.times.all()])}"
+        return f"{self.userprescription.profile.user.username}'s {self.userprescription.product_type} schedule on {self.days}"
 
 class IntakeTime(models.Model):
     """
@@ -67,6 +67,8 @@ class IntakeTime(models.Model):
 
     def __str__(self):
         return f"{self.time}"
+    
+    
 class Day(models.Model):
     WEEKDAYS = [
         ('monday', 'Monday'),
@@ -107,10 +109,10 @@ class DoseLog(models.Model):
     """
     notification = models.ForeignKey(Notification, on_delete=models.PROTECT)
     user = models.ForeignKey(Profile, on_delete=models.PROTECT) 
-    taken_at = models.DateTimeField()
-    status = models.CharField(max_length=10, choices=[('taken', 'Taken'), ('missed', 'Missed'), ('skipped', 'Skipped')])
+    taken_at = models.DateTimeField(blank=True, null=True)
+    status = models.CharField(max_length=10, choices=[('taken', 'Taken'), ('missed', 'Missed'), ('skipped', 'Skipped')], blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         # pylint: disable=no-member
-        return f"{self.intake_schedule.userprescription.product_name} {self.status} at {self.taken_at}"
+        return f"{self.notification.intake_schedule.userprescription.product_name} {self.status} at {self.taken_at}"
