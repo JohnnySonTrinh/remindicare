@@ -96,15 +96,18 @@ a.nav-link {
 .container-login {
   display: flex;
   background-color: white;
-  border-radius: var(--radius);
+  border-radius: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 80%;
-  max-width: 1000px;
-  padding-left: 0;
+  overflow: hidden;
+  width: 70%;
+  max-width: 800px;
+
   .container img {
     width: 50%;
     object-fit: cover;
+    height: 100%;
   }
+
   .form-container {
     display: flex;
     flex-direction: column;
@@ -173,10 +176,10 @@ a.nav-link {
   align-items: center;
 }
 
-.container-sign-up {
+.container-signinout {
   display: flex;
   background-color: white;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   width: 70%;
