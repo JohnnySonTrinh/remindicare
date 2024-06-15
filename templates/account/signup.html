@@ -9,59 +9,15 @@
         <h2>Sign Up</h2>
         <p>
             Already have an account?
-            <a href="{{ login_url }}">Sign in</a>
+            <a href="{% url 'account_login' %}">Sign in</a>
         </p>
-        <div class="radio-group">
-          <label>
-            <input type="radio" name="accountType" value="personal" /> For
-            personal
-          </label>
-          <label>
-            <input type="radio" name="accountType" value="caretaker" /> For
-            caretaker
-          </label>
-        </div>
-        {% if not SOCIALACCOUNT_ONLY %}
-        {% url 'account_signup' as action_url %}
-        <form method="post" action="{{ action_url }}">
+        <form method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
-        <input
-          class="input-field"
-          type="text"
-          name="signup"
-          placeholder="Username/Email"
-          required
-        />
-        <input
-          class="input-field"
-          type="text"
-          name="signup"
-          placeholder="Phone"
-          required
-        />
-        <input
-          class="input-field"
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-        />
-        <input
-          class="input-field"
-          type="password"
-          name="password"
-          placeholder="Confirm Password"
-          required
-        />
-        {{ redirect_field }}
+        {{ form.as_p }}
         <div class="btn-container">
             <button type="submit" class="btn-login">Create an account</button>
         </div>
       </form>
-      {% endif %}
-      {% if SOCIALACCOUNT_ENABLED %}
-      {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-      {% endif %}
     </div>
   </div>
 </div>
