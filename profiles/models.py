@@ -16,6 +16,14 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username if self.user else ''
+    
+    @property
+    def is_caregiver(self):
+        return hasattr(self, 'caregiver')
+
+    @property
+    def is_patient(self):
+        return hasattr(self, 'patient')
 
 class Patient(Profile):
     """
