@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block page-content %}
+  <h2>Intake Schedules</h2>
+  <ul>
+    {% for schedule in schedules %}
+      <li>
+        {{ schedule.prescription.user.user.username }} - {{ schedule.medication.name }}
+        <ul>
+          <li>Days: {% for day in schedule.days.all %}{{ day.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</li>
+          <li>Times: {% for time in schedule.times.all %}{{ time.time }}{% if not forloop.last %}, {% endif %}{% endfor %}</li>
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

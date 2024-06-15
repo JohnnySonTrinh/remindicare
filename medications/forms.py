@@ -1,8 +1,30 @@
-# forms.py
 from django import forms
+from django.forms import modelformset_factory
+
 from .models import Prescription, Medication
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Field, Div
+from crispy_forms.layout import Layout, Div
+from .models import IntakeSchedule, IntakeTime, Day, Prescription
+
+class IntakeTimeForm(forms.ModelForm):
+    class Meta:
+        model = IntakeTime
+        fields = ['time']
+
+class DayForm(forms.ModelForm):
+    class Meta:
+        model = Day
+        fields = ['name']
+
+class IntakeScheduleForm(forms.ModelForm):
+    class Meta:
+        model = IntakeSchedule
+        fields = ['days']
+
+IntakeTimeFormSet = modelformset_factory(IntakeTime, form=IntakeTimeForm, extra=1, can_delete=True)
+DayFormSet = modelformset_factory(Day, form=DayForm, extra=1, can_delete=True)
+
+
 
 class PrescriptionForm(forms.ModelForm):
     medications = forms.ModelMultipleChoiceField(
