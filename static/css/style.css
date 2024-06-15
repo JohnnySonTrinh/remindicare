@@ -37,14 +37,10 @@ body {
   color: var(--clr-blue);
 }
 
-.text-black {
-  color: var(--clr-black);
-}
-
 /* Buttons */
 .btn-blue {
   background-color: var(--clr-blue);
-  color: var(--clr-white);
+  color: var(--clr-black);
 }
 
 .btn-orange {
