@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block page-content %}
     <h1>All Prescriptions</h1>
     {% for prescription in prescriptions %}
@@ -28,14 +29,15 @@
                                 {% for time in schedule.times.all %}
                                     Take at: {{ time.time }}
                                 {% endfor %}
-                            {% endfor %}
-                            </li>
-                        </ul>
-                    {% endif %}
-                ----------------
-                {% endfor %}
-            </li>
-        </ul>
-    {% endfor %}
-   
+                            </ul>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}

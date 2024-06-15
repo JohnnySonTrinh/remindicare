@@ -1,8 +1,14 @@
 from typing import Any
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render, redirect
+from django.contrib.auth import login
+from allauth.account.views import SignupView
 from .models import Patient, Caregiver
+from .forms import CustomSignupForm
+class CustomSignupView(SignupView):
+    form_class = CustomSignupForm
+
 
 class ProfileView(LoginRequiredMixin, TemplateView):
     template_name = 'profiles/user_profile.html'  # Specify your template name here
@@ -29,3 +35,7 @@ class ProfileView(LoginRequiredMixin, TemplateView):
             context['patients'] = Patient.objects.filter(caregiver=profile)
 
         return context
+
+
+class CustomSignupView(SignupView):
+    form_class = CustomSignupForm

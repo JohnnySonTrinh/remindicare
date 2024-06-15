@@ -9,7 +9,7 @@ from .forms import PrescriptionForm, MedicationForm, IntakeScheduleForm, IntakeT
 
 @login_required
 def prescription_list(request):
-    prescription_list = Prescription.objects.all()
+    prescription_list = Prescription.objects.filter(user=request.user.patient)
     schedules_list = IntakeSchedule.objects.all()
 
     context = {
