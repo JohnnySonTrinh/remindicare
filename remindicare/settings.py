@@ -54,6 +54,10 @@ INSTALLED_APPS = [
     'medications',
 ]
 
+ACCOUNT_FORMS = {
+    'signup': 'profiles.forms.CustomSignupForm',
+}
+
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -72,19 +76,19 @@ MIDDLEWARE = [
 # Settings for email verification
 
 #ACCOUNT_EMAIL_VERIFICATION = "mandatory"
-#ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_REQUIRED = False
 #ACCOUNT_AUTHENTICATION_METHOD = 'email'
 #ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
 #ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 #ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
 
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-#EMAIL_HOST = 'smtp.example.com'
-#EMAIL_PORT = 587
-#EMAIL_USE_TLS = True
-#EMAIL_HOST_USER = 'your-email@example.com'
-#EMAIL_HOST_PASSWORD = 'your-email-password'
-#DEFAULT_FROM_EMAIL = 'webmaster@example.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.example.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@example.com'
+EMAIL_HOST_PASSWORD = 'your-email-password'
+DEFAULT_FROM_EMAIL = 'webmaster@example.com'
 
 
 ROOT_URLCONF = 'remindicare.urls'
