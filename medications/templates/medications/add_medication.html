@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block page-content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        {{ form.product_type|as_crispy_field }}
+        {{ form.name|as_crispy_field }}
+        {{ form.description|as_crispy_field }}
+        {{ form.unit|as_crispy_field }}
+        {{ form.type|as_crispy_field }}
+        
+        <div id="strength-container" class="d-none">
+            {{ form.strength.errors }}
+            {{ form.strength|as_crispy_field }}
+        </div>
+        
+        {{ form.dosage_amount|as_crispy_field }}
+        {{ form.dosage_frequency|as_crispy_field }}
+        {{ form.image|as_crispy_field }}
+
+        <button type="submit">Save</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dosageTypeElement = document.getElementById('id_type');
+            const dosageUnitElement = document.getElementById('id_unit');
+            const strengthContainer = document.getElementById('strength-container');
+
+            const toggleDosageStrength = () => {
+                const dosageType = dosageTypeElement.value;
+                const dosageUnit = dosageUnitElement.value;
+                if (['pill', 'capsule', 'tablet'].includes(dosageType) || ['mg', 'µg', 'g'].includes(dosageUnit)) {
+                    strengthContainer.classList.remove('d-none');
+                } else {
+                    strengthContainer.classList.add('d-none');
+                }
+            };
+
+            toggleDosageStrength();  // Initial call to set visibility on load
+
+            dosageTypeElement.addEventListener('change', toggleDosageStrength);
+            dosageUnitElement.addEventListener('change', toggleDosageStrength);
+        });
+    </script>
+{% endblock %}
