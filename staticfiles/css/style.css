@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --clr-green: #2a834e;
+  --clr-orange: #d15b21;
+  --clr-cream: #f7efe9;
+  --clr-blue: #00c1f3;
+  --clr-purple: #531295;
+  --clr-grey-1: hsl(208, 14%, 56%);
+  --clr-grey-2: hsl(208, 10%, 37%);
+  /* White/black color shades */
+  --clr-white: #ffffff;
+  --clr-black: #111111;
+  /* Primary and secondary font families */
+  --ff-primary: "Averia Serif Libre", serif;
+  --ff-secondary: "Poppins", sans-serif;
+  /* Commonly used CSS properties for consistency */
+  --transition: all 0.3s linear;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background: linear-gradient(
+      rgba(18, 18, 18, 0.5),
+      rgba(102, 102, 102, 0.5)
+    ),
+    url(/static/images/bg-home.webp)
+      center/cover no-repeat;
+  font-family: var(--ff-secondary);
+  color: var(--clr-cream);
+  height: 100vh;
+}
+
+.text-blue {
+  color: var(--clr-blue);
+}
+
+/* Buttons */
+.btn-blue {
+  background-color: var(--clr-blue);
+  color: var(--clr-black);
+}
+
+.btn-orange {
+  background-color: var(--clr-purple);
+  color: var(--clr-white);
+  margin-right: 2rem;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: var(--clr-cream);
+  box-shadow: var(--light-shadow);
+}
+
+.dropdown-menu-left {
+  right: 0;
+  left: auto;
+}
+
+img.logo {
+  height: 50px;
+}
+
+a.nav-link {
+  font-size: 2rem;
+  color: var(--clr-purple);
+}
+
+.dropdown-menu-right {
+  right: 0;
+  left: auto;
+}
+
+.img-container {
+  width: 600px;
+  height: auto;
+  position: relative;
+  
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+/* Wavy image */
+.img-fluid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+}
+
+.navbar .dropdown-menu {
+  position: absolute;
+}
+
+/* Login styles */
+
+.container-login {
+  display: flex;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 70%;
+  max-width: 800px;
+
+  .container img {
+    width: 50%;
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
+    color: black;
+  }
+  .form-container h2 {
+    margin: 0;
+  }
+  .form-container p {
+    margin: 1rem 0;
+  }
+  .form-container label {
+    display: block;
+    margin: 0.5rem 0;
+  }
+  .btn-login {
+    background-color: #d15b21;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  .btn-login:hover {
+    background-color: #c9302c;
+  }
+  .input-field {
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+  }
+  .radio-group {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+  }
+  .btn-container {
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+/* Login styles ends */
+
+/* Sign up styles */
+
+.bg-logform {
+  height: 90vh;
+  background: linear-gradient(
+      rgba(18, 18, 18, 0.225),
+      rgba(102, 102, 102, 0.225)
+    ),
+    url(/static/images/bg-signinout.webp)
+      center/cover no-repeat;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-signinout {
+  display: flex;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 70%;
+  max-width: 800px;
+
+  .container img {
+    width: 50%;
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
+    color: black;
+  }
+
+  .form-container h2 {
+    margin: 0;
+  }
+  .form-container p {
+    margin: 1rem 0;
+  }
+  .form-container label {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .btn-login {
+    background-color: #d15b21;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  .btn-login:hover {
+    background-color: #c9302c;
+  }
+
+  .input-field {
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+  }
+
+  .radio-group {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .dob-group {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+  }
+
+  .btn-container {
+    width: 100%;
+    text-align: center;
+  }
+}
