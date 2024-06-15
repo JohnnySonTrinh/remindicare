@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block page-content %}
+  <h2>Add Intake Schedule for {{ medication.name }}</h2>
+  <p>Prescription: {{ prescription.description }}</p>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <h3>Intake Times</h3>
+    {{ intake_time_formset.management_form }}
+    <div id="times_formset">
+      {% for form in intake_time_formset %}
+        {{ form.as_p }}
+      {% endfor %}
+    </div>
+    <button type="button" onclick="addForm('times')">Add Time</button>
+
+    <h3>Days</h3>
+    {{ day_formset.management_form }}
+    <div id="days_formset">
+      {% for form in day_formset %}
+        {{ form.as_p }}
+      {% endfor %}
+    </div>
+    <button type="button" onclick="addForm('days')">Add Day</button>
+
+    <button type="submit">Save Schedule</button>
+  </form>
+
+  <!-- Hidden empty forms for JavaScript cloning -->
+  <div style="display:none">
+    <div class="empty-form times">{{ intake_time_formset.empty_form.as_p }}</div>
+    <div class="empty-form days">{{ day_formset.empty_form.as_p }}</div>
+  </div>
+  {% block extra-js %}
+  <script>
+    const addForm = (prefix) => {
+      const formCount = document.querySelectorAll(`[id^="id_${prefix}-"]`).length;
+      const newForm = document.createElement('div');
+      newForm.innerHTML = document.querySelector(`.empty-form.${prefix}`).innerHTML.replace(/__prefix__/g, formCount);
+      document.querySelector(`#${prefix}_formset`).appendChild(newForm);
+      document.querySelector(`#id_${prefix}-TOTAL_FORMS`).value = formCount + 1;
+    }
+  </script>
+  {% endblock %}
+{% endblock %}
+
