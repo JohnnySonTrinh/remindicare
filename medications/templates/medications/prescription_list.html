@@ -1,38 +1,59 @@
 {% extends "base.html" %}
 
+
 {% block page-content %}
-    <h1>All Prescriptions</h1>
-    {% for prescription in prescriptions %}
-    <h2>Patient: {{ prescription.user }} - Caregiver: {{ prescription.caregiver}}</h2>
-        <ul>
-            <li>
-                {% for schedule in schedules %}
-                ----------------
-                    {% if schedule.prescription == prescription %}
-                        <ul>
-                            <li>Medication: {{ schedule.medication }}</li>
-                            <li>Dose amount: {{ schedule.medication.dosage_amount }} {{ schedule.medication.dosage_type }}</li>
-                            <li>{{ medication.dosage_units }}</li>
-                        </ul>
-                        <h5>Days to take the dose</h5>
-                        <ul>
-                        {% for day in schedule.days.all %}
-                            <li>
-                                {{ day.name }}
-                                {% for time in schedule.times.all %}
-                                    Take at: {{ time.time }}
+<style>
+    .card-title {
+        color: black;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .list-group-item {
+        border: none;
+        padding-left: 0;
+    }
+    .badge {
+        margin-left: 0.5rem;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">All Prescriptions</h1>
+            {% for prescription in prescriptions %}
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">Patient: {{ prescription.user }} - Caregiver: {{ prescription.caregiver}}</h2>
+                    <ul class="list-group list-group-flush">
+                        {% for schedule in schedules %}
+                        {% if schedule.prescription == prescription %}
+                        <li class="list-group-item">
+                            <h5>Medication: {{ schedule.medication.name }}</h5>
+                            <p>Dose amount: {{ schedule.medication.dosage_amount }} {{ schedule.medication.dosage_type }}</p>
+                            <h6>Days to take the dose</h6>
+                            <ul class="list-group">
+                                {% for day in schedule.days.all %}
+                                <li class="list-group-item">
+                                    {{ day.name }}
+                                    {% for time in schedule.times.all %}
+                                    <span class="badge bg-primary">Take at: {{ time.time }}</span>
+                                    {% endfor %}
+                                </li>
                                 {% endfor %}
-                            {% endfor %}
-                            </li>
-                        </ul>
-                    {% endif %}
-                ----------------
-                {% endfor %}
-            </li>
-        </ul>
-    {% endfor %}
-   
+                            </ul>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
+
 
 <!-- {% for schedule in schedules %}
     {% if schedule.prescription == prescription %}
