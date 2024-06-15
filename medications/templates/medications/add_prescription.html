@@ -2,10 +2,48 @@
 {% extends 'base.html' %}
 
 {% block page-content %}
-  <h2>Add Prescription</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Prescription</button>
-  </form>
+<style>
+  .card-title {
+      font-size: 1.5rem;
+  }
+
+  h2 {
+    color:black;
+  }
+
+  label {
+     color: black;
+     display: flex;
+  }
+
+  textarea {
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+
+  .selectpicker {
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+
+  #id_it_on_going {
+    border-radius: 50%;
+  }
+</style>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+      <div class="col-md-6">
+          <div class="card shadow-sm">
+              <div class="card-body">
+                  <h2 class="card-title mb-4">Add Prescription</h2>
+                  <form method="post">
+                      {% csrf_token %}
+                      {{ form.as_p }}
+                      <button type="submit" class="btn btn-primary w-100">Save Prescription</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 {% endblock %}
