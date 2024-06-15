@@ -6,30 +6,21 @@
 {% block page-content %}
 <div class="container mt-5">
   <div class="row">
-    <div class="col-md-6 mb-2">
-      <h1 class="display-4">Welcome to RemindiCare</h1>
-      <p class="lead">
-        RemindiCare is your essential companion for managing medications.
-      </p>
+    <div class="col-md-6 mb-2 mt-5">
+      <h1 class="display-4 mt-5">Welcome to <span class="text-blue">RemindiCare</span></h1>
       <p>
-        Easily add and track your medications, ensuring you take the right dose
-        at the right time.
-      </p>
-      <p>
+        <span class="lead text-black">RemindiCare is your essential companion for managing medications.</span><br>
+        <span class="text-black">Easily add and track your medications, ensuring you take the right dose
+        at the right time.<br>
         RemindiCare is designed to help you stay on top of your health and
-        wellness.
+        wellness.</span>
       </p>
     </div>
     <div class="col-md-12">
-      <a class="btn btn-primary btn-lg" href="{% url 'account_signup' %}" role="button">Register > </a>
-      <a class="btn btn-primary btn-lg mr-3" href="{% url 'account_login' %}" role="button">Login ></a>
+      <a class="btn btn-orange btn-lg" href="{% url 'account_signup' %}" role="button">Register > </a>
+      <a class="btn btn-blue btn-lg mr-3" href="{% url 'account_login' %}" role="button">Login ></a>
     </div>
     <div class="col-md-12">
-      <img
-        src="{% static 'images/landing-element.webp' %}"
-        alt="Wavy elements across landing page"
-        class="img-fluid"
-      />
     </div>
   </div>
 </div>

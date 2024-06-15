@@ -21,13 +21,43 @@
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+body {
+  background: linear-gradient(
+      rgba(18, 18, 18, 0.5),
+      rgba(102, 102, 102, 0.5)
+    ),
+    url(/static/images/bg-home.webp)
+      center/cover no-repeat;
+  font-family: var(--ff-secondary);
+  color: var(--clr-cream);
+  height: 100vh;
+}
+
+.text-blue {
+  color: var(--clr-blue);
+}
+
+.text-black {
+  color: var(--clr-black);
+}
+
+/* Buttons */
+.btn-blue {
+  background-color: var(--clr-blue);
+  color: var(--clr-white);
+}
+
+.btn-orange {
+  background-color: var(--clr-purple);
+  color: var(--clr-white);
+  margin-right: 2rem;
+}
+
 /* Navbar styles */
 .navbar {
   background-color: var(--clr-cream);
   box-shadow: var(--light-shadow);
 }
-
-
 
 .dropdown-menu-left {
   right: 0;
@@ -46,12 +76,6 @@ a.nav-link {
 .dropdown-menu-right {
   right: 0;
   left: auto;
-}
-
-body {
-  background-color:  #01232b95;
-  font-family: var(--ff-secondary);
-  color: var(--clr-cream);
 }
 
 /* Wavy image */
