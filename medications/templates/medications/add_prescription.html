@@ -1,0 +1,11 @@
+<!-- add_prescription.html -->
+{% extends 'base.html' %}
+
+{% block page-content %}
+  <h2>Add Prescription</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Prescription</button>
+  </form>
+{% endblock %}

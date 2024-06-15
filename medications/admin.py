@@ -2,9 +2,9 @@ from django.contrib import admin
 from .models import Medication, Prescription, IntakeSchedule, IntakeTime, Day, Notification, DoseLog
 
 class MedicationAdmin(admin.ModelAdmin):
-    list_display = ('name', 'product_type', 'dosage_unit', 'dosage_type', 'dosage_amount', 'dosage_frequency')
+    list_display = ('name', 'product_type', 'type', 'strength', 'unit', 'dosage_amount', 'dosage_frequency')
     search_fields = ('name', 'product_type')
-    list_filter = ('product_type', 'dosage_unit', 'dosage_type')
+    list_filter = ('product_type', 'unit', 'type', 'strength')
 
 class PrescriptionAdmin(admin.ModelAdmin):
     list_display = ('user', 'caregiver', 'start_date', 'end_date', 'is_on_going')
