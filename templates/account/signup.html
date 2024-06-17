@@ -1,5 +1,5 @@
-{% extends "base.html" %} {% load static %} {% load i18n %} {% block
-page-content %}
+{% extends "base.html" %} {% load static %} {% load i18n %} 
+{% block page-content %}
 <div class="bg-logform">
   <div class="container-signinout">
     <img
@@ -10,7 +10,7 @@ page-content %}
     <div class="form-container">
       <h2 class="text-orange">Sign Up</h2>
       <p>
-        Already have an account?<a href="{% url 'account_login' %}">Sign in</a>
+        Already have an account? <a href="{% url 'account_login' %}">Sign in</a>
       </p>
       <!--{{ form.as_p }}-->
       <form method="post" action="{% url 'account_signup' %}">

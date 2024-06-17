@@ -1,13 +1,19 @@
-{% extends "base.html" %} {% url 'account_login' as login_url %} {% url
-'account_signup' as signup_url %} {% url 'account_logout' as logout_url %} {%
-load static %} {% load i18n %} {% load account socialaccount %} {% block
-head_title %}{% trans "Sign In" %}{% endblock %} {% block page-content %}
+{% extends "base.html" %} 
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
+{%load static %} 
+{% load i18n %} 
+{% load account socialaccount %} 
+{% block head_title %}
+{% trans "Sign In" %}{% endblock %}
+{% block page-content %}
 <div class="bg-logform">
   <div class="container-signinout">
     <img
       src="{% static 'images/bg-short.png' %}"
       alt="Background Image"
-      class="d-none d-sm-inline-flex"
+      class="d-none d-md-inline-flex"
     />
     <div class="form-container">
       <h2 class="text-orange">Sign In</h2>
