@@ -37,6 +37,21 @@ body {
   color: var(--clr-blue);
 }
 
+a.btn-sign-in-up {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: var(--clr-orange);
+  background-color: var(--clr-cream);
+  border-radius: .2rem;
+  border: 1px solid transparent;
+
+}
+
+a.btn-sign-in-up:hover {
+  border-radius: .2rem;
+  border: 1px solid var(--clr-orange);
+}
+
 /* Buttons */
 .btn-blue {
   background-color: var(--clr-blue);

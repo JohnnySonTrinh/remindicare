@@ -1,46 +1,41 @@
 {% extends "base.html" %}
 
 {% block page-content %}
-    <h1>All Prescriptions</h1>
-    {% if prescriptions %}
-        {% for prescription in prescriptions %}
-            <h2>Patient: {{ prescription.user }} - Caregiver: {{ prescription.caregiver }}</h2>
-            <ul>
-                {% for medication in prescription.medications.all %}
+    <h1>Active Prescriptions</h1>
+    {% for prescription in prescriptions %}
+        <ul>
+            {% for medication in prescription.medications.all %}
+                <li>
+                    Medication: {{ medication.name }} - 
+                    <a href="{% url 'add_intake_schedule' prescription.id medication.id %}">Add Intake Schedule</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <ul>
+            {% for schedule in schedules %}
+                {% if schedule.prescription == prescription %}
                     <li>
-                        {{ medication.name }} - 
-                        <a href="{% url 'add_intake_schedule' prescription.id medication.id %}">Add Intake Schedule</a>
+                        <ul>
+                            <li>Medication: {{ schedule.medication.name }}</li>
+                            <li>Dose amount: {{ schedule.medication.dosage_amount }} {{ schedule.medication.dosage_type }}</li>
+                            <li>{{ schedule.medication.dosage_units }}</li>
+                        </ul>
+                        <h5>Days to take the dose</h5>
+                        <ul>
+                            {% for day in schedule.days.all %}
+                                <li>
+                                    {{ day.name }}
+                                    <ul>
+                                        {% for time in schedule.times.all %}
+                                            <li>Take at: {{ time.time }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                        </ul>
                     </li>
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for schedule in schedules %}
-                    {% if schedule.prescription == prescription %}
-                        <li>
-                            <ul>
-                                <li>Medication: {{ schedule.medication.name }}</li>
-                                <li>Dose amount: {{ schedule.medication.dosage_amount }} {{ schedule.medication.dosage_type }}</li>
-                                <li>{{ schedule.medication.dosage_units }}</li>
-                            </ul>
-                            <h5>Days to take the dose</h5>
-                            <ul>
-                                {% for day in schedule.days.all %}
-                                    <li>
-                                        {{ day.name }}
-                                        <ul>
-                                            {% for time in schedule.times.all %}
-                                                <li>Take at: {{ time.time }}</li>
-                                            {% endfor %}
-                                        </ul>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        {% endfor %}
-    {% else %}
-        <p>No prescriptions found.</p>
-    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endfor %}
 {% endblock %}
