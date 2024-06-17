@@ -9,7 +9,6 @@ class Profile(models.Model):
     date_of_birth = models.DateField()
     contact_phone = models.CharField(max_length=15, null=True, blank=True)
     address = models.TextField(null=True, blank=True)
-    is_caregiver = models.BooleanField(default=False)
 
     class Meta:
         abstract = True
