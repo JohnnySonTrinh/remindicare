@@ -22,12 +22,8 @@
 }
 
 body {
-  background: linear-gradient(
-      rgba(18, 18, 18, 0.5),
-      rgba(102, 102, 102, 0.5)
-    ),
-    url(/static/images/bg-home.webp)
-      center/cover no-repeat;
+  background: linear-gradient(rgba(18, 18, 18, 0.5), rgba(102, 102, 102, 0.5)),
+    url(/static/images/bg-home.webp) center/cover no-repeat;
   font-family: var(--ff-secondary);
   color: var(--clr-cream);
   height: 100vh;
@@ -93,14 +89,13 @@ a.nav-link {
   width: 600px;
   height: auto;
   position: relative;
-  
 }
 
 .img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0.5rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
 
 /* Wavy image */
@@ -120,86 +115,16 @@ a.nav-link {
   position: absolute;
 }
 
-/* Login styles */
+/* Sign page styles */
 
-.container-login {
-  display: flex;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  width: 70%;
-  max-width: 800px;
-
-  .container img {
-    width: 50%;
-    object-fit: cover;
-    height: 100%;
-  }
-
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    width: 100%;
-    color: black;
-  }
-  .form-container h2 {
-    margin: 0;
-  }
-  .form-container p {
-    margin: 1rem 0;
-  }
-  .form-container label {
-    display: block;
-    margin: 0.5rem 0;
-  }
-  .btn-login {
-    background-color: #d15b21;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    cursor: pointer;
-    margin-top: 1rem;
-  }
-  .btn-login:hover {
-    background-color: #c9302c;
-  }
-  .input-field {
-    margin-bottom: 1rem;
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-  }
-  .radio-group {
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
-  }
-  .btn-container {
-    display: flex;
-    justify-content: center;
-  }
-
-}
-
-/* Login styles ends */
-
-/* Sign up styles */
 
 .bg-logform {
-  height: 90vh;
+  height: 100vh;
   background: linear-gradient(
       rgba(18, 18, 18, 0.225),
       rgba(102, 102, 102, 0.225)
     ),
-    url(/static/images/bg-signinout.webp)
-      center/cover no-repeat;
+    url(/static/images/bg-signinout.webp) center/cover no-repeat;
   object-fit: cover;
   display: flex;
   justify-content: center;
@@ -211,14 +136,16 @@ a.nav-link {
   background-color: white;
   border-radius: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
   width: 70%;
   max-width: 800px;
+  height: 50vh;
 
-  .container img {
-    width: 50%;
-    object-fit: cover;
-    height: 100%;
+  h2 {
+    color: var(--clr-orange);
+  }
+
+  img {
+    display: none;
   }
 
   .form-container {
@@ -242,6 +169,12 @@ a.nav-link {
     margin: 0.5rem 0;
   }
 
+  .radio-group {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
   .btn-login {
     background-color: #d15b21;
     color: white;
@@ -252,6 +185,7 @@ a.nav-link {
     cursor: pointer;
     margin-top: 1rem;
   }
+  
   .btn-login:hover {
     background-color: #c9302c;
   }
@@ -262,12 +196,7 @@ a.nav-link {
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 0.5rem;
-  }
-
-  .radio-group {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+    color: gray;
   }
 
   .dob-group {
@@ -287,4 +216,29 @@ a.nav-link {
     width: 100%;
     text-align: center;
   }
+
+  textarea {
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+  p {
+    font-size: 0.8rem;
+  }
 }
+
+@media only screen and (min-width: 767px) {
+  .container-signinout {
+    width: 60%;
+    max-width: 800px;
+    height: 65vh;
+    max-height: 800px;
+
+    img {
+      width: 30%;
+      object-fit: cover;
+      max-height: fit-content;
+    }
+  }
+}
+
+/* Sign up */

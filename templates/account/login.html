@@ -1,47 +1,54 @@
-{% extends "base.html" %}
-{% url 'account_login' as login_url %} {% url 'account_signup' as signup_url %} {% url 'account_logout' as logout_url %}
-{% load static %}
-{% load i18n %}
-{% load account socialaccount %}
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% extends "base.html" %} 
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
+{%load static %} 
+{% load i18n %} 
+{% load account socialaccount %} 
+{% block head_title %}
+{% trans "Sign In" %}{% endblock %}
 {% block page-content %}
-  <div class="bg-logform">
-    <div class="container-signinout">
-      <img src="{% static 'images/bg-short.png' %}" alt="Background Image" class="d-none d-md-inline-flex">
-      <div class="form-container">
-        <h2 class="text-orange">Sign In</h2>
-        <p>Create an account? <a class="btn-sign-in-up" href="{% url 'account_signup' %}">Sign up</a></p>
-        <div class="radio-group">
-          <label>
-            <input type="radio" name="accountType" value="personal" /> For
-            personal
-          </label>
-          <label>
-            <input type="radio" name="accountType" value="caretaker" /> For
-            caretaker
-          </label>
-        </div>
-        <form method="post" action="{% url 'account_login' %}">
-          {% csrf_token %}
-          <input
-            class="input-field"
-            type="text"
-            name="login"
-            placeholder="Username/Email"
-            required
-          />
-          <input
-            class="input-field"
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-          />
-          <div class="btn-container">
-            <button type="submit" class="btn-login">Sign In</button>
-          </div>
-        </form>
+<div class="bg-logform">
+  <div class="container-signinout">
+    <img
+      src="{% static 'images/bg-short.png' %}"
+      alt="Background Image"
+      class="d-none d-md-inline-flex"
+    />
+    <div class="form-container">
+      <h2 class="text-orange">Sign In</h2>
+      <p>Create an account? <a href="{% url 'account_signup' %}">Sign up</a></p>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="accountType" value="personal" /> For
+          personal
+        </label>
+        <label>
+          <input type="radio" name="accountType" value="caretaker" /> For
+          caretaker
+        </label>
       </div>
+      <form method="post" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        <input
+          class="input-field"
+          type="text"
+          name="login"
+          placeholder="Username/Email"
+          required
+        />
+        <input
+          class="input-field"
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <div class="btn-container">
+          <button type="submit" class="btn-login">Sign In</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 {% endblock %}

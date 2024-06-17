@@ -1,41 +1,81 @@
-{% extends "base.html" %}
-{% load static %}
-{% load i18n %}
+{% extends "base.html" %} {% load static %} {% load i18n %} 
 {% block page-content %}
 <div class="bg-logform">
   <div class="container-signinout">
-    <img src="{% static 'images/bg-short.png' %}" alt="Background Image" class="d-none d-md-inline-flex">
+    <img
+      src="{% static 'images/bg-short.png' %}"
+      alt="Background Image"
+      class="d-none d-md-inline-flex"
+    />
     <div class="form-container">
-      <h2 class="text-orange">Register</h2>
-      <p>Already have an account? <a class="btn-sign-in-up" href="{% url 'account_login' %}">Sign in</a></p>
+      <h2 class="text-orange">Sign Up</h2>
+      <p>
+        Already have an account? <a href="{% url 'account_login' %}">Sign in</a>
+      </p>
       <!--{{ form.as_p }}-->
       <form method="post" action="{% url 'account_signup' %}">
-      {% csrf_token %}
+        {% csrf_token %}
         <div class="radio-group">
           <label>
             <input type="radio" name="accountType" value="personal" /> For
             personal
           </label>
           <label>
-            <input type="radio" name="accountType" value="caretaker" id="id_is_caregiver" /> For
-            caretaker
+            <input
+              type="radio"
+              name="accountType"
+              value="caretaker"
+              id="id_is_caregiver"
+            />
+            For caretaker
           </label>
         </div>
-          <label class="d-none" for="id_username">Username:</label>
-          <input class="input-field" type="text" name="username" placeholder="Username" autocomplete="username" minlength="1" maxlength="150" required id="id_username">
-          <label class="d-none" for="id_date_of_birth">Date of birth:</label>
-          <input class="input-field" type="date" name="date_of_birth" required id="id_date_of_birth">
-          <label class="d-none" for="id_password1">Password:</label>
-          <input class="input-field" type="password" name="password1" placeholder="Password" autocomplete="new-password" required aria-describedby="id_password1_helptext" id="id_password1">
-          <label class="d-none" for="id_password2">Password (again):</label>
-          <input class="input-field" type="password" name="password2" placeholder="Confirm password" autocomplete="new-password" required id="id_password2">
+        <label class="d-none" for="id_username">Username:</label>
+        <input
+          class="input-field"
+          type="text"
+          name="username"
+          placeholder="Username"
+          autocomplete="username"
+          minlength="1"
+          maxlength="150"
+          required
+          id="id_username"
+        />
+        <label class="d-none" for="id_date_of_birth">Date of birth:</label>
+        <input
+          class="input-field"
+          type="date"
+          name="date_of_birth"
+          required
+          id="id_date_of_birth"
+        />
+        <label class="d-none" for="id_password1">Password:</label>
+        <input
+          class="input-field"
+          type="password"
+          name="password1"
+          placeholder="Password"
+          autocomplete="new-password"
+          required
+          aria-describedby="id_password1_helptext"
+          id="id_password1"
+        />
+        <label class="d-none" for="id_password2">Password (again):</label>
+        <input
+          class="input-field"
+          type="password"
+          name="password2"
+          placeholder="Confirm password"
+          autocomplete="new-password"
+          required
+          id="id_password2"
+        />
         <div class="btn-container">
-            <button type="submit" class="btn-login">Create an account</button>
+          <button type="submit" class="btn-login">Create an account</button>
         </div>
       </form>
     </div>
   </div>
 </div>
 {% endblock%}
-
-
