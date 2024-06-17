@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.forms import modelformset_factory
+from django.core.exceptions import ObjectDoesNotExist
 
 from profiles.models import Caregiver, Patient
 from .models import IntakeSchedule, Prescription, Medication, IntakeTime, Day
@@ -9,7 +10,12 @@ from .forms import PrescriptionForm, MedicationForm, IntakeScheduleForm, IntakeT
 
 @login_required
 def prescription_list(request):
-    prescription_list = Prescription.objects.filter(user=request.user.patient)
+    try:
+        patient = request.user.patient
+        prescription_list = Prescription.objects.filter(user=patient)
+    except ObjectDoesNotExist:
+        prescription_list = Prescription.objects.none()
+
     schedules_list = IntakeSchedule.objects.all()
 
     context = {
